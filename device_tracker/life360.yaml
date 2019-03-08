@@ -1,0 +1,9 @@
+- platform: life360
+  username: !secret ltsuser
+  password: !secret ltspw
+  interval_seconds: 10
+  filename: life360.conf
+  show_as_state: places, driving, moving
+  max_update_wait:
+    minutes: 30
+

@@ -7,6 +7,8 @@
 !.gitignore
 !*.md
 !packages/
+!sensors/
+!device_tracker/
 
 # Ignore folders.
 .storage

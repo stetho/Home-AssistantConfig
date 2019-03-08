@@ -1,0 +1,8 @@
+- platform: season
+  type: astronomical
+
+- platform: launch_library
+
+- platform: moon
+
+- platform: london_air

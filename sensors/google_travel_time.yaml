@@ -1,0 +1,34 @@
+- platform: google_travel_time
+  name: Steve To Home
+  api_key: !secret googlemapsapi
+  origin: device_tracker.steve_thompson
+  destination: zone.home
+  options:
+    mode: transit
+
+
+- platform: google_travel_time
+  name: Steve To Work
+  api_key: !secret googlemapsapi
+  origin: device_tracker.steve_thompson
+  destination: zone.google
+  options:
+    mode: transit
+
+
+- platform: google_travel_time
+  name: Julie To Home
+  api_key: !secret googlemapsapi
+  origin: device_tracker.julie
+  destination: zone.home
+  options:
+    mode: transit
+
+- platform: google_travel_time
+  name: Julie To Goldsmiths
+  api_key: !secret googlemapsapi
+  origin: device_tracker.julie
+  destination: zone.goldsmiths_university
+  options:
+    mode: transit
+

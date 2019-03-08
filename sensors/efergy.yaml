@@ -1,0 +1,11 @@
+- platform: efergy
+  app_token: LHkbPCpJSjgsZcpn8FAxQierK9_tw04N
+  monitored_variables:
+    - type: instant_readings
+    - type: budget
+    - type: cost
+      period: day
+      currency: £
+    - type: amount
+      period: day
+    - type: current_values

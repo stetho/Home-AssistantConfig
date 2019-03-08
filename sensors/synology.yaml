@@ -1,0 +1,26 @@
+- platform: synologydsm
+  host: 192.168.1.12
+  username: admin
+  password: !secret synopass
+  monitored_conditions:
+    - cpu_system_load
+    - cpu_user_load
+    - memory_real_usage
+    - disk_smart_status
+    - volume_status
+    - volume_percentage_used
+    - volume_size_used
+
+- platform: synologydsm
+  host: 192.168.1.13
+  username: admin
+  password: !secret synopass
+  monitored_conditions:
+    - cpu_system_load
+    - cpu_user_load
+    - memory_real_usage
+    - disk_smart_status
+    - volume_status
+    - volume_percentage_used
+    - volume_size_used
+

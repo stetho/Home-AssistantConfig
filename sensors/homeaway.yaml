@@ -1,0 +1,8 @@
+- platform: template
+  sensors:
+    steve_status:
+        value_template: '{{ states.input_select.steve_status_dropdown.state }}'
+        friendly_name: 'Steve'
+    julie_status:
+      value_template: '{{ states.input_select.julie_status_dropdown.state }}'
+      friendly_name: 'Julie'

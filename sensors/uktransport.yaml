@@ -1,0 +1,40 @@
+- platform: uk_transport
+  app_id: !secret uktid
+  app_key: !secret uktkey
+  queries:
+    - mode: train
+      origin: ECR
+      destination: STP
+    - mode: bus
+      origin: 490013549S
+      destination: Morden
+    - mode: bus
+      origin: 490013549N
+      destination: Lewisham
+
+- platform: template
+  sensors:
+    next_train_status:
+      friendly_name: 'Next train status'
+      value_template: '{{states.sensor.next_train_to_stp.attributes.next_trains[0].status}}'
+    next_trains_origin:
+      friendly_name: 'Next train origin'
+      value_template: '{{states.sensor.next_train_to_stp.attributes.next_trains[0].origin_name}}'
+    next_trains_estimated:
+      friendly_name: 'Next train estimated'
+      value_template: '{{states.sensor.next_train_to_stp.attributes.next_trains[0].estimated}}'
+    next_trains_scheduled:
+      friendly_name: 'Next train scheduled'
+      value_template: '{{states.sensor.next_train_to_stp.attributes.next_trains[0].scheduled}}'
+    next_trains_platform:
+      friendly_name: 'Next train platform'
+      value_template: '{{states.sensor.next_train_to_stp.attributes.next_trains[0].platform}}'
+    next_bus_route:
+      friendly_name: 'Next 75 to Lewisham'
+      value_template: '{{states.sensor.next_bus_to_lewisham.attributes.next_buses[0].route}}'
+    next_bus_scheduled:
+      friendly_name: 'Next 75 scheduled'
+      value_template: '{{states.sensor.next_bus_to_lewisham.attributes.next_buses[0].scheduled}}'
+    next_bus_estimated:
+      friendly_name: 'Next 75 estimated'
+      value_template: '{{states.sensor.next_bus_to_lewisham.attributes.next_buses[0].estimated}}'

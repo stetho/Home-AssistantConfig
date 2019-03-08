@@ -1,0 +1,21 @@
+- platform: template
+  sensors:
+    frontdoor:
+      friendly_name: "Front door"
+      value_template: >-
+        {% if is_state('sensor.aeotec_zw120_door_window_sensor_gen5_access_control', '22') %}
+          open
+        {% elif is_state('sensor.aeotec_zw120_door_window_sensor_gen5_access_control', '23') %}
+          closed
+        {% else %}
+          unknown
+        {% endif %}
+      icon_template: >-
+        {% if is_state('sensor.aeotec_zw120_door_window_sensor_gen5_access_control', '22') %}
+          mdi:door-open
+        {% elif is_state('sensor.aeotec_zw120_door_window_sensor_gen5_access_control', '23') %}
+          mdi:door-closed
+        {% else %}
+          mdi:alert
+        {% endif %}
+

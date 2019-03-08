@@ -1,0 +1,17 @@
+- platform: qnap
+  host: 192.168.1.14
+  username: admin
+  password: !secret qnappw
+  monitored_conditions:
+    - status
+    - cpu_usage
+    - memory_percent_used
+    - network_tx
+    - volume_size_used
+    - system_temp
+    - cpu_temp
+    - memory_free
+    - memory_used
+    - drive_smart_status
+    - drive_temp
+    - volume_size_free

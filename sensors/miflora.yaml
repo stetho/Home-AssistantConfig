@@ -1,0 +1,12 @@
+- platform: miflora
+  mac: 'C4:7C:8D:66:1F:0D'
+  name: Trug
+  force_update: false
+  median: 3
+  monitored_conditions:
+    - moisture
+    - light
+    - temperature
+    - conductivity
+    - battery 
+
