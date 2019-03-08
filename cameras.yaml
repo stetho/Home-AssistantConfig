@@ -1,0 +1,17 @@
+#- platform: generic
+#  still_image_url: http://192.168.104.159/picture/1/current/?_=1521278167200&_username=admin&_signature=452fac196888d12f1c95b277d28c148f3b92a2a6
+#  name: Garage
+#  scan_interval: 60
+
+- platform: ring
+
+  #- platform: synology
+  #url: http://192.168.1.57:5000
+  #username: !secret synouser
+  #password: !secret synopass
+  #verify_ssl: false
+
+- platform: generic
+  name: ISS
+  still_image_url: http://staticmap.openstreetmap.de/staticmap.php?center={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }}&zoom=4&size=865x512&maptype=mapnik&markers={{ states.binary_sensor.iss.attributes.lat }},{{ states.binary_sensor.iss.attributes.long }},lightblue
+  limit_refetch_to_url_change: true

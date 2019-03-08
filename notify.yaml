@@ -1,0 +1,39 @@
+- name: ponotify
+  platform: pushover
+  api_key: !secret poapi
+  user_key: !secret pouser
+
+- platform: html5
+  name: html5
+  gcm_api_key: !secret gcm_api_key
+  gcm_sender_id: !secret gcm_sender_id
+
+- name: sendgrid
+  platform: sendgrid
+  api_key: !secret sgapi
+  sender: !secret sgsender
+  recipient: !secret sgrecipient
+
+- name: telegramnotify
+  platform: telegram
+  chat_id: '225737418'
+
+- name: twitternotify
+  platform: twitter
+  consumer_key: !secret twitterconsumerkey
+  consumer_secret: !secret twitterconsumersecret
+  access_token: !secret twitteraccesstoken
+  access_token_secret: !secret twitteraccesstokensecret
+
+- platform: synology_chat
+  name: synonotify
+  resource: http://192.168.1.12:5000/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=2&token=%22FvyMSk4GKpq4ocsqsTFS8lnPKKcWyUJTKu1hK93TSJi9kiRj2SMtXMRpZutu950P%22
+
+- name: lametric
+  platform: lametric
+  
+
+- name: slack
+  platform: slack
+  api_key: !secret slackapi
+  default_channel: '#general'

@@ -1,0 +1,18 @@
+- name: Google
+  latitude: !secret 6pslat
+  longitude: !secret 6pslon
+  radius: 200
+  icon: mdi:google
+
+- name: Goldsmiths University
+  latitude: 51.4742743
+  longitude: -0.0375967
+  radius: 60
+  icon: mdi:school
+
+- name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  radius: 30
+  icon: mdi:home-modern
+

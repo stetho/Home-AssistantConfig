@@ -1,0 +1,252 @@
+homeassistant:
+  name: Number 23
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 12
+  unit_system: metric
+  time_zone: Europe/London
+  packages: !include_dir_named packages
+  customize: !include customize.yaml
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password
+
+person:
+  - name: Steve
+    id: steve
+    device_trackers:
+      - device_tracker.steve_thompson 
+
+googlehome:
+  devices:
+    - host: 192.168.1.109
+
+logger:
+  default: info
+  logs:
+    homeassistant.components.mqtt: debug
+    homeassistant.core: debug
+    asyncio: debug
+
+auth: 
+
+lametric:
+  client_id: !secret lamclid
+  client_secret: !secret lamclsecret
+
+sabnzbd:
+  host: 192.168.1.74
+  port: 8080
+  api_key: ab05ace5b40e9f72999bda0f3f4b9ed4
+  name: sab
+  sensors:
+    - current_status
+    - speed
+    - queue_size
+    - queue_remaining
+    - disk_size
+    - disk_free
+    - queue_count
+    - day_size
+    - week_size
+    - month_size
+    - total_size
+
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+zwave:
+  usb_path: /dev/ttyACM0
+
+ios:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+http:
+  api_password: !secret httppass
+  base_url: !secret base_url
+  cors_allowed_origins: !secret base_url
+  use_x_forwarded_for: True
+  trusted_proxies:
+    - 192.168.1.200
+    - 172.20.0.11
+  trusted_networks:
+    - 192.168.1.0/24
+    - 127.0.0.1
+    - 192.168.101.0/24
+    - 192.168.102.0/24
+    - 192.168.103.0/24
+    - 192.168.104.0/24
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - octoprint
+    - sabnzbd
+
+wunderlist:
+  client_id: !secret wlclient
+  access_token: !secret wltoken
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+hue:
+  bridges:
+    - host: 192.168.1.51
+      allow_unreachable: true
+      allow_hue_groups: true
+
+# Text to speech
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret awsaccess
+    aws_secret_access_key: !secret awssecret
+    region_name: 'us-east-1'
+  - platform: voicerss
+    api_key: !secret voicersskey
+    format: '44khz_16bit_stereo'
+
+# Cloud
+cloud:
+
+group: !include_dir_merge_named groups
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+switch: !include switches.yaml
+zone: !include zones.yaml
+sensor: !include_dir_merge_list sensors
+notify: !include notify.yaml
+device_tracker: !include_dir_merge_list device_tracker
+camera: !include cameras.yaml
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+climate:
+  platform: nest
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegramapi
+    allowed_chat_ids:
+      - 225737418
+
+
+
+netatmo:
+  api_key: !secret netatmoid
+  secret_key: !secret netatmosecret
+  username: !secret netatmouser
+  password: !secret netatmopw
+
+
+ring:
+    username: !secret ring_username
+    password: !secret ring_password
+
+mqtt:
+  broker: 192.168.1.165
+  client_id: homeassistant
+  discovery: true
+  discovery_prefix: homeassistant
+  birth_message:
+    topic: 'homeassistant/status'
+    payload: 'online'
+    qos: 1
+    retain: true
+  will_message:
+    topic: 'homeassistant/status'
+    payload: 'offline'
+    qos: 1
+    retain: true
+
+plant:
+  trug1:
+    sensors:
+      moisture: sensor.trug_moisture
+      battery: sensor.trug_battery
+      temperature: sensor.trug_temperature
+      conductivity: sensor.trug_conductivity
+      brightness: sensor.trug_brightness
+    min_moisture: 20
+
+
+binary_sensor:
+  - platform: aurora
+    forecast_threshold: 50
+  - platform: iss
+
+weather:
+  - platform: openweathermap
+    api_key: !secret owmapi
+
+tado:
+  username: !secret tadouser
+  password: !secret tadopass
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 3
+
+recorder:
+  purge_keep_days: 5
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+    entities:
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+      - sensor.date
+
+input_select:
+  steve_status_dropdown:
+    name: Steve
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+  julie_status_dropdown:
+    name: Julie
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+
