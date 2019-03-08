@@ -1,0 +1,62 @@
+homeassistant:
+  customize_glob:
+    "sensor.*_co_status":
+      hidden: True
+      homebridge_hidden: true
+    "sensor.*_battery_health":
+      hidden: True
+      homebridge_hidden: true
+    "sensor.*_color_status":
+      hidden: True
+      homebridge_hidden: true
+    "sensor.*_smoke_status":
+      hidden: True
+      homebridge_hidden: true
+    "sensor.*_security_state":
+      hidden: True
+      homebridge_hidden: true
+      
+  customize:
+
+    binary_sensor.downstairs_nest_protect_online:
+      friendly_name: Living Room Protect
+      icon: mdi:smoke-detector
+    binary_sensor.garage_nest_protect_online:
+      friendly_name: Garage Protect
+      icon: mdi:smoke-detector
+    binary_sensor.upstairs_nest_protect_online:
+      friendly_name: Upstairs Protect
+      icon: mdi:smoke-detector
+
+group:
+  protects:
+    control: hidden
+    name: Nest Protects
+    entities:
+      - binary_sensor.downstairs_nest_protect_online
+      - binary_sensor.garage_nest_protect_online
+      - binary_sensor.upstairs_nest_protect_online
+
+automation:
+  - alias: Nest protect emergency
+    hide_entity: true
+    trigger:
+      platform: state
+      entity_id:
+        - sensor.downstairs_nest_protect_smoke_status
+        - sensor.garage_nest_protect_smoke_status
+        - sensor.upstairs_nest_protect_smoke_status
+        - sensor.downstairs_nest_protect_co_status
+        - sensor.garage_nest_protect_co_status
+        - sensor.upstairs_nest_protect_co_status
+      to: 'Emergency'
+
+    condition:
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+
+    action:
+      - service: notify.ponotify
+        data_template:
+          value1: "An emergency has been detected on {{ trigger.to_state.attributes.friendly_name }} Please investigate IMMEDIATELY."

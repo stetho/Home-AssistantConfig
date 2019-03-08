@@ -1,0 +1,119 @@
+#-------------------------------------------
+#  PiHole ad Blocking Related Packages
+#-------------------------------------------
+homeassistant:
+  customize:
+
+    sensor.pi_hole_ads_percentage_today:
+      friendly_name: Percentage of Ad Traffic Blocked
+      unit_of_measurement: '%'
+      icon: mdi:ticket-percent
+
+    sensor.pi_hole_domains_being_blocked:
+      friendly_name: Total Domains Blocking
+      icon: mdi:do-not-disturb
+
+    sensor.pi_hole_dns_unique_clients:
+      friendly_name: Unique Clients
+      icon: mdi:desktop-classic
+
+    sensor.pi_hole_ads_blocked_today:
+      friendly_name: Ads Blocked Today
+      icon: mdi:do-not-disturb
+
+    sensor.pi_hole_dns_queries_today:
+      friendly_name: DNS Queries Today
+      icon: mdi:note-text
+
+    sensor.23wwcpihole:
+      friendly_name: Pi Hole Server
+      icon: mdi:filter-variant
+
+    group.pihole:
+      homebridge_hidden: true
+#-------------------------------------------
+sensor:
+  - platform: pi_hole
+    host: 192.168.1.2
+    ssl: false
+    verify_ssl: false
+    monitored_conditions:
+      - dns_queries_today
+      - ads_blocked_today
+      - ads_percentage_today
+      - unique_clients
+
+  - platform: template
+    sensors:
+      23wwcpihole:
+        friendly_name: '23wwc-PiHole'
+        value_template: "{{ 'Online' if is_state('device_tracker.23wwcpihole', 'home') else 'Offline' }}"
+
+
+# Pi-Hole switch
+switch:
+  - platform: command_line
+    switches:
+      pihole_temp_disable:
+        command_on: "curl -X GET 'http://192.168.1.2/admin/api.php?enable&auth='"
+        command_off: "curl -X GET 'http://192.168.1.2/admin/api.php?disable=3600&auth='"
+        command_state: "curl -X GET 'http://192.168.1.2/admin/api.php?status'| grep enabled"
+        value_template: "{{ value_json.status == 'enabled' }}"
+
+#-------------------------------------------
+group:
+  pihole:
+    control: hidden
+    entities:
+      - sensor.23wwcpihole
+      - sensor.pi_hole_dns_unique_clients
+      - sensor.pi_hole_dns_queries_today
+      - sensor.pi_hole_ads_blocked_today
+      - sensor.pi_hole_ads_percentage_blocked_today
+      - switch.pihole_temp_disable
+#-------------------------------------------
+
+
+automation:
+  - alias: PiHole Daily stats Tweet!
+    trigger:
+      platform: time
+      at: '23:50:00'
+    action:
+      - delay: '00:{{ range(0,5) | random | int }}{{ range(0,9) | random | int }}:00'
+      - service: script.tweet_engine_image
+        data_template:
+          tweet: >
+            {{ [
+            "I blocked {{states.sensor.pi_hole_ads_blocked_today.state}} ads. That is {{states.sensor.pi_hole_ads_percentage_blocked_today.state}}% of my internet traffic.",
+            "Today was a good day! Why, you ask? Because I blocked {{states.sensor.pi_hole_ads_blocked_today.state}} ads via Pi-Hole!",
+            ] | random + " #PiHole #Security Status:({{states.sensor.23wwcpihole.state}})"}}
+          image: >-
+            {{ [
+            "/config/www/custom_ui/floorplan/images/branding/servers.png",
+            "/config/www/custom_ui/floorplan/images/branding/servers2.png",
+            "/config/www/custom_ui/floorplan/images/branding/servers3.png",
+            "/config/www/custom_ui/floorplan/images/branding/servers4.png"
+            ] | random }}
+
+  - alias: PiHole Daily Client Tweet!
+    trigger:
+      platform: time
+      at: '04:30:00'
+    action:
+      - delay: '0{{ (range(1, 5)|random|int) }}:{{ range(0,5) | random | int }}{{ range(0,9) | random | int }}:00'
+      - service: script.tweet_engine_image
+        data_template:
+          tweet: >
+            {{ [
+            "There are currently {{states.sensor.pi_hole_dns_unique_clients.state}} clients on my network.",
+            "As reported by #Ubiquity Routers, There are {{states.sensor.pi_hole_dns_unique_clients.state}} clients on my network.",
+            ] | random + "#Security https://github.com/CCOSTAN/Home-AssistantConfig#networking"}}
+          image: >-
+            {{ [
+            "/config/www/custom_ui/floorplan/images/branding/servers.png",
+            "/config/www/custom_ui/floorplan/images/branding/servers2.png",
+            "/config/www/custom_ui/floorplan/images/branding/servers3.png",
+            "/config/www/custom_ui/floorplan/images/branding/servers4.png"
+            ] | random }}
+
