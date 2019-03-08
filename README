@@ -1,0 +1,15 @@
+## Welcome to my Home Assistant configuration files.
+
+After many iterations of hardware, HAss now runs as a Docker container on an Inter NUC.
+
+My hardware includes
+
+- Tado Thermostat
+- NetAtmo Weather including Wind and Rain modules
+- NetAtmo Presence
+- NetAtmo Welcome
+- Ring doorbell
+- Loads of Aeotec Z-Wave sensors
+- Nest Protects (three)
+
+Other stuff to be added - this readme is about as organised as this configuration at the moment.

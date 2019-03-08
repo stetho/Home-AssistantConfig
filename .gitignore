@@ -9,6 +9,7 @@
 !packages/
 !sensors/
 !device_tracker/
+!README
 
 # Ignore folders.
 .storage
