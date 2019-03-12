@@ -120,6 +120,9 @@ map:
 # Track the sun
 sun:
 
+tplink:
+  discovery: true
+
 hue:
   bridges:
     - host: 192.168.1.51
