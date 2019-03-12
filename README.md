@@ -1,4 +1,4 @@
-__Welcome to my Home Assistant configuration files.__
+## Welcome to my Home Assistant configuration files.
 
 After many iterations of hardware, HAss now runs as a Docker container on an Inter NUC.
 
