@@ -1,0 +1,9 @@
+alexa:
+  filter:
+    exclude_domains:
+      - group
+      - automation
+      - sensor
+      - binary_sensor
+      - script
+

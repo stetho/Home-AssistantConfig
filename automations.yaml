@@ -70,7 +70,7 @@
       message: Motion in the garage
     service: notify.lametric
   - data:
-      message: Motion in the garage
+      message: Motion in the garage. Light turned on.
     service: notify.telegramnotify
 - id: '1545421397370'
   alias: Garage light off
@@ -84,6 +84,9 @@
   - data:
       entity_id: switch.garage_light
     service: switch.turn_off
+  - data:
+      message: Garage light turned off.
+    service: notify.telegramnotify
 - id: '1551313242589'
   alias: HARestart
   trigger:

@@ -140,11 +140,13 @@ tts:
     format: '44khz_16bit_stereo'
 
 # Cloud
-cloud:
+cloud: !include cloud.yaml
+
 
 group: !include_dir_merge_named groups
 
-automation: !include automations.yaml
+#automation: !include automations.yaml
+automation: !include_dir_merge_list automations
 script: !include scripts.yaml
 switch: !include switches.yaml
 zone: !include zones.yaml
@@ -158,7 +160,7 @@ nest:
   client_secret: !secret nest_client_secret
 
 climate:
-  platform: nest
+  platform: tado
 
 telegram_bot:
   - platform: polling
@@ -210,6 +212,26 @@ binary_sensor:
   - platform: aurora
     forecast_threshold: 50
   - platform: iss
+  - platform: tod
+    name: Night
+    after: sunset
+    before: sunrise
+
+  - platform: tod
+    name: Morning
+    after: sunrise
+    before:  '12:00'
+
+  - platform: tod
+    name: Early Morning
+    after: sunrise
+    after_offset: '-02:00'
+    before: '07:00'
+
+  - platform: tod
+    name: Late Morning
+    after: '10:00'
+    before: '12:00'
 
 weather:
   - platform: openweathermap
@@ -255,3 +277,4 @@ input_select:
       - Extended Away
     initial: Home
 
+alexa:
