@@ -1,0 +1,13 @@
+- alias: Home Assistant Restarted
+  initial_state: 'on'
+  trigger:
+    - event: start
+      platform: homeassistant
+  action:
+    - service: notify.lametric_alert
+      data:
+        message: Home Assistant has been restarted
+    - service: notify.telegramnotify
+      data:
+       message: Home Assistant has been restarted
+

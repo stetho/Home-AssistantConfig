@@ -1,7 +1,7 @@
 - platform: mold_indicator
   name: Living Room Mold
   indoor_temp_sensor: sensor.netatmo_wwc_indoor_temperature
-  indoor_humidity_sensor: sensor.downstairs_thermostat_humidity
+  indoor_humidity_sensor: sensor.living_room_humidity
   outdoor_temp_sensor: sensor.netatmo_wwc_outside_temperature
   calibration_factor: 11.8
 
