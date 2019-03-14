@@ -1,0 +1,36 @@
+- platform: tod
+  name: Night
+  after: sunset
+  before: sunrise
+
+- platform: tod
+  name: Morning
+  after: sunrise
+  before:  '12:00'
+
+- platform: tod
+  name: Early Morning
+  after: sunrise
+  after_offset: '-02:00'
+  before: '07:00'
+
+- platform: tod
+  name: Late Morning
+  after: '10:00'
+  before: '12:00'
+
+- platform: tod
+  name: Morning Commute
+  after: '07:30'
+  before: '09:00'
+
+- platform: tod
+  name: Afternoon
+  after: '11:59'
+  before: '17:00'
+
+- platform: tod
+  name: Evening
+  after: '17:01'
+  before: '20:00'
+

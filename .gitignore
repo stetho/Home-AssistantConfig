@@ -9,7 +9,8 @@
 !packages/
 !sensors/
 !device_tracker/
-!automations
+!automations/
+!binary_sensor
 !README
 
 # Ignore folders.
