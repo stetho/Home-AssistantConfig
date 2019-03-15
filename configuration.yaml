@@ -19,7 +19,7 @@ person:
 
 googlehome:
   devices:
-    - host: 192.168.1.109
+    - host: 192.168.1.183
 
 logger:
   default: info
@@ -159,8 +159,8 @@ nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
-climate:
-  platform: tado
+  #climate:
+  #  platform: tado
 
 telegram_bot:
   - platform: polling

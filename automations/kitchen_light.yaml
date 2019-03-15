@@ -7,7 +7,7 @@
       to: '8'
   action:
     - service: light.turn_on
-      entity_id: light.kitchen
+      entity_id: light.kitchen_led
 
 - alias: 'Kitchen light off'
   initial_state: 'on'
@@ -18,6 +18,6 @@
       to: '0'
   action:
     - service: light.turn_off
-      entity_id: light.kitchen
+      entity_id: light.kitchen_led
 
 
