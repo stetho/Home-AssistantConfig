@@ -3,12 +3,12 @@
   indoor_temp_sensor: sensor.netatmo_wwc_indoor_temperature
   indoor_humidity_sensor: sensor.living_room_humidity
   outdoor_temp_sensor: sensor.netatmo_wwc_outside_temperature
-  calibration_factor: 11.8
+  calibration_factor: 1.555555555
 
 - platform: mold_indicator
   name: Bathroom Mold
   indoor_temp_sensor: sensor.aeotec_zw100_multisensor_6_temperature_3
   indoor_humidity_sensor: sensor.aeotec_zw100_multisensor_6_relative_humidity_3
   outdoor_temp_sensor: sensor.netatmo_wwc_outside_temperature
-  calibration_factor: 11.8
+  calibration_factor: 1.555555555
 

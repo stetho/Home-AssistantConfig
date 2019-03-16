@@ -31,10 +31,8 @@
 
 - name: lametric
   platform: lametric
-  lifetime: 30
-  cycles: 3
-  display_time: 30
   sound: "lose1"
+
 
 - name: slack
   platform: slack

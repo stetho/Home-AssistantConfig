@@ -13,7 +13,7 @@
         message: Motion in the garage!
     - service: notify.telegramnotify
       data:
-       message: Motion in the garage!
+        message: Motion in the garage!
 
 
 - alias: 'Garage  light off'

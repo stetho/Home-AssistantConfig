@@ -6,10 +6,10 @@
     from: '23'
     to: '22'
   action:
-    - service: notify.lametric_alert
+    - service: notify.lametric
       data:
         message: Front Door has been opened
     - service: notify.telegramnotify
       data:
-       message: Front Door has been opened
+        message: Front Door has been opened
 
