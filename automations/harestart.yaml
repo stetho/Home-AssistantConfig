@@ -4,9 +4,9 @@
     - event: start
       platform: homeassistant
   action:
-    - service: notify.lametric
+    - service: notify.lmnotify
       data:
-        message: Home Assistant has been restarted
+        message: 'Home Assistant has been restarted'
     - service: notify.telegramnotify
       data:
         message: Home Assistant has been restarted

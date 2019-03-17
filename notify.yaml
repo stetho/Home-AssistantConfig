@@ -29,8 +29,8 @@
   name: synonotify
   resource: http://192.168.1.12:5000/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=2&token=%22FvyMSk4GKpq4ocsqsTFS8lnPKKcWyUJTKu1hK93TSJi9kiRj2SMtXMRpZutu950P%22
 
-- name: lametric
-  platform: lametric
+- platform: lametric
+  name: lmnotify
   sound: "lose1"
 
 
