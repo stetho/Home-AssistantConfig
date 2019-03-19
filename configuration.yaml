@@ -34,23 +34,6 @@ lametric:
   client_id: !secret lamclid
   client_secret: !secret lamclsecret
 
-sabnzbd:
-  host: 192.168.1.74
-  port: 8080
-  api_key: ab05ace5b40e9f72999bda0f3f4b9ed4
-  name: sab
-  sensors:
-    - current_status
-    - speed
-    - queue_size
-    - queue_remaining
-    - disk_size
-    - disk_free
-    - queue_count
-    - day_size
-    - week_size
-    - month_size
-    - total_size
 
 
 # Show links to resources in log and frontend
@@ -79,10 +62,6 @@ http:
   trusted_networks:
     - 192.168.1.0/24
     - 127.0.0.1
-    - 192.168.101.0/24
-    - 192.168.102.0/24
-    - 192.168.103.0/24
-    - 192.168.104.0/24
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -178,8 +157,8 @@ netatmo:
 
 
 ring:
-    username: !secret ring_username
-    password: !secret ring_password
+  username: !secret ring_username
+  password: !secret ring_password
 
 mqtt:
   broker: 192.168.1.165
@@ -233,25 +212,5 @@ recorder:
       - sun.sun # Don't record sun data
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
-
-input_select:
-  steve_status_dropdown:
-    name: Steve
-    options:
-      - Home
-      - Just Arrived
-      - Just Left
-      - Away
-      - Extended Away
-    initial: Home
-  julie_status_dropdown:
-    name: Julie
-    options:
-      - Home
-      - Just Arrived
-      - Just Left
-      - Away
-      - Extended Away
-    initial: Home
 
 alexa:

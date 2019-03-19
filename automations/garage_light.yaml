@@ -8,7 +8,7 @@
   action:
     - service: switch.turn_on
       entity_id: switch.garage_light
-    - service: notify.lametric_alert
+    - service: notify.lmnotify
       data:
         message: Motion in the garage!
     - service: notify.telegramnotify

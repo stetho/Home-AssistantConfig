@@ -31,8 +31,6 @@
 
 - platform: lametric
   name: lmnotify
-  sound: "lose1"
-
 
 - name: slack
   platform: slack

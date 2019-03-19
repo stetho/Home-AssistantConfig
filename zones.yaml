@@ -1,7 +1,7 @@
 - name: Google
   latitude: !secret 6pslat
   longitude: !secret 6pslon
-  radius: 200
+  radius: 100
   icon: mdi:google
 
 - name: Goldsmiths University
@@ -13,6 +13,6 @@
 - name: Home
   latitude: !secret latitude
   longitude: !secret longitude
-  radius: 30
+  radius: 20
   icon: mdi:home-modern
 
