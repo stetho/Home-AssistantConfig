@@ -9,7 +9,8 @@ homeassistant:
   customize: !include customize.yaml
   auth_providers:
     - type: homeassistant
-    - type: legacy_api_password
+
+stream:
 
 person:
   - name: Steve
@@ -59,9 +60,6 @@ http:
   trusted_proxies:
     - 192.168.1.200
     - 172.20.0.11
-  trusted_networks:
-    - 192.168.1.0/24
-    - 127.0.0.1
 
 # Checks for available updates
 # Note: This component will send some information about your system to

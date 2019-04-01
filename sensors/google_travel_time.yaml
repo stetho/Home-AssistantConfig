@@ -32,3 +32,27 @@
   options:
     mode: transit
 
+- platform: google_travel_time
+  name: Julie To Lewisham
+  api_key: !secret googlemapsapi
+  origin: device_tracker.julie
+  destination: zone.lewisham_town_hall
+  options:
+    mode: transit
+
+- platform: google_travel_time
+  name: Ryan To Home
+  api_key: !secret googlemapsapi
+  origin: device_tracker.ryan
+  destination: zone.home
+  options:
+    mode: transit
+
+- platform: google_travel_time
+  name: Christian To Home
+  api_key: !secret googlemapsapi
+  origin: device_tracker.christian
+  destination: zone.home
+  options:
+    mode: transit
+

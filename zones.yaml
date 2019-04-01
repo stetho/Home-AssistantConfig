@@ -16,3 +16,8 @@
   radius: 20
   icon: mdi:home-modern
 
+- name: Lewisham Town Hall
+  latitude: 51.4453181
+  longitude: -0.0221953
+  radius: 25
+  icon: mdi:office-building

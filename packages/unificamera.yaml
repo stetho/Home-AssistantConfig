@@ -1,6 +1,0 @@
-camera:
-  - platform: uvc
-    nvr: 192.168.1.112
-    key: QaK23IwvAQAln2UaIba4hp4hYMfefuKM
-    password: WxetN5Te9d
-

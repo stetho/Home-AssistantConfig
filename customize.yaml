@@ -22,21 +22,21 @@ sensor.aeotec_zw100_multisensor_6_alarm_level_2:
   friendly_name: Hallway Alarm Level
 sensor.aeotec_zw100_multisensor_6_ultraviolet_2:
   friendly_name: Hallway Ultraviolet
-sensor.aeotec_zw100_multisensor_6_temperature_2:
+sensor.aeotec_zwa005_trisensor_temperature:
   friendly_name: Hallway Temperature
 binary_sensor.aeotec_zw100_multisensor_6_sensor_2:
   friendly_name: Hallway Sensor
 sensor.aeotec_zw100_multisensor_6_alarm_type_2:
   friendly_name: Hallway Alarm Type
-sensor.aeotec_zw100_multisensor_6_burglar_2:
+sensor.aeotec_zwa005_trisensor_burglar:
   friendly_name: Hallway Burglar
-sensor.aeotec_zw100_multisensor_6_luminance_2:
+sensor.aeotec_zwa005_trisensor_luminance:
   friendly_name: Hallway Luminance
-sensor.aeotec_zw100_multisensor_6_relative_humidity_2:
+sensor.aeotec_zwa005_trisensor_relative_humidity:
   friendly_name: Hallway Relative Humidity
-sensor.aeotec_zw100_multisensor_6_sourcenodeid_2:
+sensor.aeotec_zwa005_trisensor_sourcenodeid:
   friendly_name: Hallway SourceNodeId
-zwave.aeotec_zw100_multisensor_6_2:
+zwave.aeotec_zwa005_trisensor:
   friendly_name: Hallway
 zwave.aeotec_zw100_multisensor_6_3:
   friendly_name: Bathroom

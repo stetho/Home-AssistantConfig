@@ -1,7 +1,7 @@
 - id: '1536096958287'
   alias: Hallway light on
   trigger:
-  - entity_id: sensor.aeotec_zw100_multisensor_6_burglar_2
+  - entity_id: sensor.aeotec_zwa005_trisensor_burglar
     from: '0'
     platform: state
     to: '8'
@@ -13,10 +13,10 @@
 - id: '1536097422923'
   alias: Hallway light off
   trigger:
-  - entity_id: binary_sensor.aeotec_zw100_multisensor_6_sensor_2
-    from: 'on'
+  - entity_id: sensor.aeotec_zwa005_trisensor_burglar
+    from: '8'
     platform: state
-    to: 'off'
+    to: '0'
   condition: []
   action:
   - data:
