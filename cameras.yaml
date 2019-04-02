@@ -5,8 +5,8 @@
 
 - platform: ring
 
-  #- platform: synology
-  #url: http://192.168.1.57:5000
-  #username: !secret synouser
-  #password: !secret synopass
-  #verify_ssl: false
+#- platform: synology
+#url: http://192.168.1.57:5000
+#username: !secret synouser
+#password: !secret synopass
+#verify_ssl: false

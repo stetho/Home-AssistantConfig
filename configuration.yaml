@@ -130,7 +130,10 @@ zone: !include zones.yaml
 sensor: !include_dir_merge_list sensors
 notify: !include notify.yaml
 device_tracker: !include_dir_merge_list device_tracker
-camera: !include cameras.yaml
+#camera: !include cameras.yaml
+
+camera:
+  - platform: ring
 
 nest:
   client_id: !secret nest_client_id
