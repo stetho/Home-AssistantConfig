@@ -17,6 +17,22 @@ person:
     id: steve
     device_trackers:
       - device_tracker.steve_thompson 
+  - name: Julie
+    id: julie
+    device_trackers:
+      - device_tracker.julie
+  - name: Ryan
+    id: ryan
+    device_trackers:
+      - device_tracker.ryan
+  - name: Christian
+    id: christian
+    device_trackers:
+      - device_tracker.christian
+  - name: Dominic
+    id: dominic
+    device_trackers:
+      - device_tracker.dominic
 
 googlehome:
   devices:
@@ -102,7 +118,7 @@ tplink:
 
 hue:
   bridges:
-    - host: 192.168.1.51
+    - host: 192.168.2.156
       allow_unreachable: true
       allow_hue_groups: true
 
@@ -118,6 +134,9 @@ tts:
 
 # Cloud
 cloud: !include cloud.yaml
+
+influxdb:
+  host: 192.168.2.57
 
 
 group: !include_dir_merge_named groups
